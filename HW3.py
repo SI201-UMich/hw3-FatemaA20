@@ -37,7 +37,7 @@ class CouponDispenser:
         self.coupon_cards = coupon_cards
         self.customer_roster = customer_roster
         self.issued_indices = issued_indices
-        pass
+        
 
     def __str__(self):
         """
@@ -48,6 +48,9 @@ class CouponDispenser:
             str
         """
         # TODO: Implement per instructions
+        if len(self.coupon_card) == 0:
+            return ""
+        return "|".join(self.coupon_cards)
         pass
 
     def issue_coupon(self, name):
