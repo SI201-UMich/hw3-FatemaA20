@@ -77,9 +77,6 @@ class CouponDispenser:
             return f"That name already has a coupon: {coupon}"
         
     
-
-        
-
     def distribute_session(self):
         """
         Run the "coupon dispenser" session.
@@ -117,7 +114,7 @@ class CouponDispenser:
                     if name != "":
                         result = self.issue_coupon(name)
                         print(result)
-        pass
+        
 
     def tally_distribution(self):
         """
@@ -135,8 +132,17 @@ class CouponDispenser:
             None
         """
         # TODO: Implement per instructions
-        pass
-
+        if len(self.issued_indices) == 0:
+            print("Empty")
+            return 
+        
+        for i in range(len(self.coupon_cards)):
+            count = 0
+            for issued in self.issued_indices:
+                if issued == i:
+                    count += 1
+            print(f"{self.coupon_cards[i]} distribution count: {count}.")
+                
 
 def main():
     """
@@ -156,8 +162,7 @@ def main():
     # Uncomment the lines below as you implement each function.
     box = CouponDispenser(coupon_cards)
     box.distribute_session()
-    # box.tally_distribution()
-    pass
+    box.tally_distribution()
 
 
 # -----------------------
